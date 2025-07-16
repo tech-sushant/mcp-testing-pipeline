@@ -1,0 +1,65 @@
+{
+  "tests": [
+    {
+      "name": "Run Android Espresso Tests",
+      "tool": "runAppTestsOnBrowserStack",
+      "args": {
+        "appPath": "/Users/sushant/Downloads/test-pipeline/resources/android/Calculator.apk",
+        "testSuitePath": "/Users/sushant/Downloads/test-pipeline/resources/android/CalculatorTest.apk",
+        "devices": ["Samsung Galaxy S20-10.0"],
+        "detectedAutomationFramework": "espresso",
+        "project": "Test-Android-Project-<random_string>"
+      },
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "match_mode": "regex",
+            "text": "✅ Espresso run started successfully!\\n\\n🔧 Build ID: [a-f0-9]+\\n🔗 View your build: https://app-automate\\.browserstack\\.com/builds/[a-f0-9]+"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Run iOS XCUITest Tests",
+      "tool": "runAppTestsOnBrowserStack",
+      "args": {
+        "appPath": "/Users/sushant/Downloads/test-pipeline/resources/ios/SampleApp.ipa",
+        "testSuitePath": "/Users/sushant/Downloads/test-pipeline/resources/ios/SampleTestSuite.zip",
+        "devices": ["iPhone 12-14"],
+        "detectedAutomationFramework": "xcuitest",
+        "project": "Test-iOS-Project-<random_string>"
+      },
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "match_mode": "regex",
+            "text": "✅ XCUITest run started successfully!\\n\\n🔧 Build ID: [a-f0-9]+\\n🔗 View your build: https://app-automate\\.browserstack\\.com/builds/[a-f0-9]+"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Run Android Espresso Tests - File Not Found",
+      "tool": "runAppTestsOnBrowserStack",
+      "args": {
+        "appPath": "test-pipeline/resources/android/Calculator.apk",
+        "testSuitePath": "test-pipeline/resources/android/CalculatorTest.apk",
+        "devices": ["Samsung Galaxy S20-10.0"],
+        "detectedAutomationFramework": "espresso",
+        "project": "Test-Android-Project-<random_string>"
+      },
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error running App Automate test: File not found at path: test-pipeline/resources/android/Calculator.apk",
+            "isError": true
+          }
+        ],
+        "isError": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "[Accessibility] Start a scan and get results within the 10-second timeout",
+      "tool": "startAccessibilityScan",
+      "args": {
+        "name": "a11y-scan-<random_string>",
+        "pageURL": "https://bstackdemo.com/"
+      },
+      "deactivate": true,
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "text": "^✅ Accessibility scan \".*?\" completed\\. check the BrowserStack dashboard for more details",
+            "match_mode": "regex"
+          },
+          {
+            "type": "text",
+            "text": "We found .*? issues\\.",
+            "match_mode": "regex"
+          },
+          {
+            "type": "text",
+            "text": "Scan results:",
+            "match_mode": "contains"
+          }
+        ]
+      }
+    }
+  ]
+}

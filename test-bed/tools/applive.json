@@ -1,0 +1,61 @@
+{
+  "tests": [
+    {
+      "name": "Android App Live Session",
+      "tool": "runAppLiveSession",
+      "args": {
+        "desiredPlatform": "android",
+        "desiredPlatformVersion": "12.0",
+        "appPath": "/Users/sushant/Downloads/test-pipeline/resources/android/Calculator.apk",
+        "desiredPhone": "Samsung Galaxy S21"
+      },
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "match_mode": "regex",
+            "text": "Successfully started a session\\. If a browser window did not open automatically, use the following URL to start the session: .*"
+          }
+        ]
+      }
+    },
+    {
+      "name": "iOS App Live Session",
+      "tool": "runAppLiveSession",
+      "args": {
+        "desiredPlatform": "ios",
+        "desiredPlatformVersion": "18.0",
+        "appPath": "/Users/sushant/Downloads/test-pipeline/resources/ios/SampleApp.ipa",
+        "desiredPhone": "iPhone 16"
+      },
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "match_mode": "regex",
+            "text": "Successfully started a session\\. If a browser window did not open automatically, use the following URL to start the session: .*"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Take App Screenshot",
+      "tool": "takeAppScreenshot",
+      "args": {
+        "desiredPlatform": "android",
+        "desiredPlatformVersion": "12.0",
+        "appPath": "/Users/sushant/Downloads/test-pipeline/resources/android/Calculator.apk",
+        "desiredPhone": "Samsung Galaxy S21"
+      },
+      "expectedOutput": {
+        "content": [
+          {
+            "type": "text",
+            "match_mode": "exact",
+            "text": "✅ Screenshot captured successfully"
+          }
+        ]
+      }
+    }
+  ]
+}
